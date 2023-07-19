@@ -61,3 +61,4 @@ function PokemonDetails() {
 }
 
 export { PokemonDetails };
+

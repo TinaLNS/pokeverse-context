@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 
+
 const FavoritesContext = createContext();
 
 function FavoritesProvider({ children }) {
@@ -15,8 +16,14 @@ function FavoritesProvider({ children }) {
     setFavorites(favorites.filter((favorite) => name !== favorite));
   }
 
+  const favoritesContextValue = {
+    favorites,
+    addFavorite,
+    removeFavorite,
+  };
+
   return (
-    <FavoritesContext.Provider>
+    <FavoritesContext.Provider value={favoritesContextValue}>
       {children}
     </FavoritesContext.Provider>
   );

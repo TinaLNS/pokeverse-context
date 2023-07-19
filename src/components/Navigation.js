@@ -19,6 +19,9 @@ function Navigation() {
           <Nav.Link as="div">
             <NavLink to='/'>All Pokemon</NavLink>
           </Nav.Link>
+            <Nav.Link as="div">
+            <NavLink to='/favorites'>My Favorites</NavLink>
+          </Nav.Link>
         </Nav>
       </Container>
     </Navbar>

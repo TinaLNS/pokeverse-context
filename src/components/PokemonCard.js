@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import { FavoritesContext } from '../FavoritesProvider';
 
 function PokemonCard({ name }) {
   const [pokemon, setPokemon] = useState(null);
+  const { addFavorite } = useContext(FavoritesContext); // Destructure addFavorite out of context
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
@@ -39,6 +42,9 @@ function PokemonCard({ name }) {
             ))}
           </ul>
         </Card.Text>
+        <Button variant="primary" onClick={() => addFavorite(name)}>
+          Add to Favorites
+        </Button>
       </Card.Body>
     </Card>
   );
